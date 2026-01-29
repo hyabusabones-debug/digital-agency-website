@@ -1,0 +1,59 @@
+// import { NextResponse } from "next/server"
+// import type { NextRequest } from "next/server"
+
+// export function proxy(request: NextRequest) {
+//   // Check if accessing admin routes
+//   if (request.nextUrl.pathname.startsWith("/admin")) {
+//     // Get admin credentials from environment
+//     // const adminUsername = process.env.ADMIN_USERNAME
+//     const adminPassword = process.env.ADMIN_PASSWORD
+
+//     // If no credentials configured, allow access (for development)
+//     if (!adminUsername || !adminPassword) {
+//       return NextResponse.next()
+//     }
+
+//     // Check for basic auth header
+//     const authHeader = request.headers.get("authorization")
+
+//     if (!authHeader) {
+//       return new NextResponse("Authentication required", {
+//         status: 401,
+//         headers: {
+//           "WWW-Authenticate": 'Basic realm="Admin Area"',
+//         },
+//       })
+//     }
+
+//     // Parse basic auth
+//     const [scheme, encoded] = authHeader.split(" ")
+
+//     if (scheme !== "Basic" || !encoded) {
+//       return new NextResponse("Invalid authentication", {
+//         status: 401,
+//         headers: {
+//           "WWW-Authenticate": 'Basic realm="Admin Area"',
+//         },
+//       })
+//     }
+
+//     const decoded = Buffer.from(encoded, "base64").toString("utf-8")
+//     const [username, password] = decoded.split(":")
+
+//     // Verify credentials
+//     if (username !== adminUsername || password !== adminPassword) {
+//       return new NextResponse("Invalid credentials", {
+//         status: 401,
+//         headers: {
+//           "WWW-Authenticate": 'Basic realm="Admin Area"',
+//         },
+//       })
+//     }
+//   }
+
+//   return NextResponse.next()
+// }
+
+// export const config = {
+//   matcher: ["/admin/:path*"],
+// }
