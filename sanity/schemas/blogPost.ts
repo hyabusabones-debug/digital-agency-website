@@ -1,3 +1,4 @@
+import { createElement } from "react"
 import { defineField, defineType } from "sanity"
 import { FileText } from "lucide-react"
 
@@ -5,7 +6,7 @@ export const blogPost = defineType({
   name: "blogPost",
   title: "Blog Posts",
   type: "document",
-  icon: () => FileText,
+  icon: () => createElement(FileText, { size: 16 }),
   fields: [
     defineField({
       name: "title",

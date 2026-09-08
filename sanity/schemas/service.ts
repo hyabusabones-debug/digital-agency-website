@@ -5,7 +5,7 @@ export const service = defineType({
   name: "service",
   title: "Services",
   type: "document",
-  icon: () => Layers,
+  icon: Layers,
   fields: [
     defineField({
       name: "title",

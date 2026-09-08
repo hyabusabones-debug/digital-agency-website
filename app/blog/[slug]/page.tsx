@@ -2,504 +2,11 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, Calendar, Clock, Share2, Twitter, Linkedin, Facebook } from "lucide-react"
-
-const blogPostsData: Record<string, {
-  title: string
-  excerpt: string
-  content: string
-  image: string
-  category: string
-  author: { name: string; role: string; image: string }
-  date: string
-  readTime: string
-}> = {
-  "web-design-trends-2026": {
-    title: "10 Web Design Trends to Watch in 2026",
-    excerpt: "Discover the latest design trends that are shaping the future of web experiences and how to implement them in your projects.",
-    image: "/images/blog/design-trends.jpg",
-    category: "Design",
-    author: { name: "Emily Davis", role: "Creative Director", image: "/images/team/emily.jpg" },
-    date: "January 15, 2026",
-    readTime: "8 min read",
-    content: `
-The world of web design is constantly evolving, and 2026 brings exciting new trends that are reshaping how we create digital experiences. From AI-powered personalization to immersive 3D elements, here are the top trends you need to know.
-
-## 1. AI-Powered Personalization
-
-Artificial intelligence is revolutionizing how websites adapt to individual users. Modern sites can now analyze user behavior in real-time and adjust layouts, content, and calls-to-action to maximize engagement and conversions.
-
-## 2. Immersive 3D Elements
-
-With WebGL and three.js becoming more accessible, 3D elements are moving beyond simple animations to create truly immersive experiences. From interactive product viewers to full 3D environments, the web is becoming more dimensional.
-
-## 3. Sustainable Web Design
-
-As environmental consciousness grows, designers are focusing on creating websites that minimize energy consumption. This includes optimized images, efficient code, and dark mode options that reduce screen energy usage.
-
-## 4. Micro-Interactions and Motion
-
-Subtle animations and micro-interactions continue to enhance user experience. These small details provide feedback, guide users, and add personality to interfaces without overwhelming them.
-
-## 5. Bold Typography
-
-Typography is taking center stage with oversized fonts, creative layouts, and variable fonts that respond to user interactions. Text is no longer just content—it is a design element in its own right.
-
-## 6. Glassmorphism Evolution
-
-The frosted glass effect has evolved beyond simple panels to more sophisticated applications. Combined with gradients and subtle shadows, glassmorphism creates depth and hierarchy in modern interfaces.
-
-## 7. Asymmetric Layouts
-
-Breaking away from traditional grid systems, asymmetric layouts create visual interest and guide the user's eye through content in unexpected ways.
-
-## 8. Voice User Interfaces
-
-As voice assistants become ubiquitous, websites are incorporating voice navigation and interaction, making digital experiences more accessible and hands-free.
-
-## 9. Dark Mode as Default
-
-Many users prefer dark interfaces, and designers are now creating dark-mode-first designs that maintain excellent readability and visual appeal.
-
-## 10. Inclusive Design
-
-Accessibility is no longer an afterthought. Inclusive design practices are being built into the foundation of web projects, ensuring everyone can access and enjoy digital experiences.
-
-## Conclusion
-
-Staying current with design trends helps create websites that feel modern and relevant. However, remember that trends should serve your users and business goals—not the other way around. Choose the trends that make sense for your specific project and audience.
-    `,
-  },
-  "complete-seo-guide-2026": {
-    title: "The Complete Guide to SEO in 2026",
-    excerpt: "Everything you need to know about search engine optimization, from technical SEO to content strategy and beyond.",
-    image: "/images/blog/seo-guide.jpg",
-    category: "Marketing",
-    author: { name: "James Wilson", role: "Marketing Lead", image: "/images/team/james.jpg" },
-    date: "January 10, 2026",
-    readTime: "12 min read",
-    content: `
-Search engine optimization continues to evolve, and 2026 brings new challenges and opportunities for marketers. This comprehensive guide covers everything you need to know to succeed in the modern SEO landscape.
-
-## Understanding Modern Search
-
-Search engines have become incredibly sophisticated, using AI to understand user intent, context, and the quality of content. Gone are the days of keyword stuffing—today's SEO requires a holistic approach.
-
-## Technical SEO Fundamentals
-
-### Core Web Vitals
-
-Page experience signals remain crucial for rankings. Focus on:
-- **Largest Contentful Paint (LCP)**: Load main content within 2.5 seconds
-- **First Input Delay (FID)**: Ensure interactivity within 100ms
-- **Cumulative Layout Shift (CLS)**: Minimize visual instability
-
-### Mobile-First Indexing
-
-Google primarily uses the mobile version of your site for indexing. Ensure your mobile experience is flawless.
-
-### Structured Data
-
-Implement schema markup to help search engines understand your content and earn rich snippets.
-
-## Content Strategy
-
-### E-E-A-T Principles
-
-- **Experience**: Demonstrate firsthand knowledge
-- **Expertise**: Show deep understanding of topics
-- **Authoritativeness**: Build credibility in your niche
-- **Trustworthiness**: Maintain accuracy and transparency
-
-### Content Depth vs. Breadth
-
-Focus on creating comprehensive, authoritative content rather than churning out thin articles. One excellent piece outperforms ten mediocre ones.
-
-## Link Building in 2026
-
-Quality over quantity remains the rule for backlinks. Focus on:
-- Creating linkable assets
-- Building genuine relationships
-- Guest posting on relevant, high-quality sites
-- Digital PR and brand mentions
-
-## Local SEO
-
-For businesses with physical locations:
-- Optimize your Google Business Profile
-- Gather and respond to reviews
-- Ensure NAP consistency across directories
-- Create location-specific content
-
-## Measuring Success
-
-Track metrics that matter:
-- Organic traffic growth
-- Keyword rankings for target terms
-- Conversion rates from organic traffic
-- Page experience scores
-- Backlink quality and growth
-
-## Conclusion
-
-SEO success in 2026 requires a balanced approach combining technical excellence, high-quality content, and strategic promotion. Stay updated with algorithm changes, but focus on providing genuine value to your audience.
-    `,
-  },
-  "scalable-react-applications": {
-    title: "Building Scalable React Applications",
-    excerpt: "Best practices and patterns for building React applications that scale with your business needs.",
-    image: "/images/blog/react-scalable.jpg",
-    category: "Development",
-    author: { name: "Michael Chen", role: "Technical Director", image: "/images/team/michael.jpg" },
-    date: "January 5, 2026",
-    readTime: "10 min read",
-    content: `
-Building React applications that scale requires careful planning and adherence to best practices. In this guide, we'll explore patterns and strategies that will help your application grow with your business.
-
-## Project Structure
-
-A well-organized project structure is the foundation of scalability. Consider organizing by feature rather than file type:
-
-\`\`\`
-src/
-  features/
-    auth/
-      components/
-      hooks/
-      services/
-      types/
-    dashboard/
-    settings/
-  shared/
-    components/
-    hooks/
-    utils/
-\`\`\`
-
-## State Management
-
-### When to Use Global State
-
-Not everything needs to be in global state. Consider:
-- **Local state**: UI state, form inputs
-- **Server state**: API data (use React Query or SWR)
-- **Global state**: User session, theme, app-wide settings
-
-### State Management Solutions
-
-Choose based on your needs:
-- **Context + useReducer**: Simple apps
-- **Zustand**: Lightweight, minimal boilerplate
-- **Redux Toolkit**: Complex state with time-travel debugging
-
-## Performance Optimization
-
-### Code Splitting
-
-Use dynamic imports to split your code:
-\`\`\`javascript
-const Dashboard = lazy(() => import('./features/dashboard'))
-\`\`\`
-
-### Memoization
-
-Use React.memo, useMemo, and useCallback judiciously. Profile before optimizing—premature optimization can hurt readability.
-
-### Virtual Lists
-
-For long lists, use virtualization libraries like react-window or react-virtual.
-
-## Testing Strategy
-
-### Test Pyramid
-
-- **Unit tests**: Individual functions and hooks
-- **Integration tests**: Component interactions
-- **E2E tests**: Critical user flows
-
-### Testing Library Best Practices
-
-Test behavior, not implementation. Query by accessible attributes like role and label text.
-
-## Type Safety
-
-TypeScript is essential for large applications. Define strict types for:
-- API responses
-- Component props
-- State shapes
-- Event handlers
-
-## Error Handling
-
-Implement error boundaries at strategic points:
-- Route level
-- Feature level
-- Critical component level
-
-## Documentation
-
-Document as you build:
-- Component props with JSDoc or TypeScript
-- Complex logic with inline comments
-- Architecture decisions with ADRs
-
-## Conclusion
-
-Scalable React applications result from consistent patterns, careful state management, and continuous attention to performance. Start with these foundations, and your app will be ready to grow.
-    `,
-  },
-  "ux-research-methods": {
-    title: "UX Research Methods Every Designer Should Know",
-    excerpt: "A comprehensive overview of user research methods and when to use each one for maximum impact.",
-    image: "/images/blog/ux-research.jpg",
-    category: "Design",
-    author: { name: "Emily Davis", role: "Creative Director", image: "/images/team/emily.jpg" },
-    date: "December 28, 2025",
-    readTime: "7 min read",
-    content: `
-Great design starts with understanding your users. UX research provides the insights needed to create products that truly meet user needs. Here's your guide to essential research methods.
-
-## Qualitative vs. Quantitative
-
-### Qualitative Research
-Explores the "why" behind user behavior through methods like interviews and observations. Best for understanding motivations and discovering new insights.
-
-### Quantitative Research
-Measures behavior through metrics and statistics. Best for validating hypotheses and tracking changes over time.
-
-## Discovery Methods
-
-### User Interviews
-One-on-one conversations to understand user goals, pain points, and contexts. Tips for success:
-- Prepare open-ended questions
-- Listen more than you talk
-- Follow interesting threads
-- Record with permission
-
-### Contextual Inquiry
-Observe users in their natural environment. See how they actually work, not just how they say they work.
-
-### Surveys
-Gather data from many users quickly. Keep surveys focused and short—aim for 5-10 minutes maximum.
-
-## Evaluation Methods
-
-### Usability Testing
-Watch users attempt tasks with your product. Even 5 users can reveal most usability issues.
-
-### A/B Testing
-Compare two versions to see which performs better. Requires significant traffic for statistical validity.
-
-### Heuristic Evaluation
-Expert review based on established usability principles. Quick and cost-effective for finding obvious issues.
-
-## Synthesis and Communication
-
-### Affinity Mapping
-Group research findings into themes and patterns. Great for collaborative analysis.
-
-### Personas
-Create representative user archetypes based on research data. Keep them grounded in real insights.
-
-### Journey Maps
-Visualize the user's experience over time. Identify pain points and opportunities.
-
-## When to Use Each Method
-
-| Method | Best For |
-|--------|----------|
-| Interviews | Early discovery, deep insights |
-| Surveys | Broad feedback, validation |
-| Usability Testing | Evaluating designs |
-| A/B Testing | Optimizing conversions |
-| Analytics | Understanding behavior patterns |
-
-## Conclusion
-
-Mix methods to get a complete picture of your users. Research is an ongoing process—continue learning throughout the product lifecycle.
-    `,
-  },
-  "ecommerce-conversion-optimization": {
-    title: "E-Commerce Conversion Optimization Strategies",
-    excerpt: "Proven strategies to increase your online store conversion rates and boost revenue.",
-    image: "/images/blog/ecommerce-conversion.jpg",
-    category: "E-Commerce",
-    author: { name: "Sarah Johnson", role: "CEO & Founder", image: "/images/team/sarah.jpg" },
-    date: "December 20, 2025",
-    readTime: "9 min read",
-    content: `
-Conversion rate optimization can dramatically impact your e-commerce revenue. A small improvement in conversion rate can mean significant revenue growth. Here are proven strategies to optimize your online store.
-
-## Understanding Your Funnel
-
-Map your customer journey from landing to purchase. Identify where users drop off and prioritize improvements there.
-
-## Product Pages That Convert
-
-### High-Quality Images
-Use multiple angles, zoom functionality, and lifestyle shots. Consider 360-degree views or video for complex products.
-
-### Compelling Descriptions
-Write benefits-focused copy. Address common questions and objections. Use bullet points for scannability.
-
-### Social Proof
-Display reviews prominently. Show star ratings, review count, and verified purchase badges.
-
-### Clear CTAs
-Make the add-to-cart button prominent. Use action-oriented language. Test button colors and text.
-
-## Checkout Optimization
-
-### Reduce Friction
-- Offer guest checkout
-- Minimize form fields
-- Auto-fill where possible
-- Show progress indicators
-
-### Build Trust
-- Display security badges
-- Show accepted payment methods
-- Offer multiple shipping options
-- Clear return policy
-
-### Recover Abandoned Carts
-- Send reminder emails
-- Offer incentives to complete
-- Make it easy to return
-
-## Site Speed Matters
-
-Every second of delay costs conversions. Optimize:
-- Image compression
-- Code minification
-- CDN usage
-- Server response time
-
-## Mobile Experience
-
-Most e-commerce traffic is mobile. Ensure:
-- Thumb-friendly navigation
-- Easy-to-tap buttons
-- Simplified checkout
-- Fast load times
-
-## Personalization
-
-Use data to personalize:
-- Product recommendations
-- Email content
-- Homepage displays
-- Search results
-
-## Testing Framework
-
-Don't guess—test. Implement:
-- A/B testing for major changes
-- Multivariate testing for optimization
-- Regular analysis of results
-- Continuous iteration
-
-## Key Metrics to Track
-
-- Conversion rate by source
-- Average order value
-- Cart abandonment rate
-- Customer lifetime value
-- Return on ad spend
-
-## Conclusion
-
-Conversion optimization is an ongoing process. Start with high-impact areas, test systematically, and keep learning from your customers.
-    `,
-  },
-  "ai-digital-marketing-future": {
-    title: "The Future of AI in Digital Marketing",
-    excerpt: "How artificial intelligence is transforming digital marketing and what it means for your business.",
-    image: "/images/blog/ai-marketing.jpg",
-    category: "Marketing",
-    author: { name: "James Wilson", role: "Marketing Lead", image: "/images/team/james.jpg" },
-    date: "December 15, 2025",
-    readTime: "11 min read",
-    content: `
-Artificial intelligence is revolutionizing digital marketing. From content creation to customer insights, AI is changing how businesses connect with their audiences. Here's what you need to know.
-
-## Current AI Applications
-
-### Content Generation
-AI can now create first drafts of blog posts, social media content, and ad copy. While human oversight remains essential, AI dramatically speeds up content production.
-
-### Predictive Analytics
-Machine learning models can predict customer behavior, churn risk, and lifetime value with increasing accuracy.
-
-### Chatbots and Customer Service
-AI-powered chatbots handle routine inquiries 24/7, freeing human agents for complex issues.
-
-### Ad Optimization
-Platforms like Google and Meta use AI to optimize ad delivery, bidding, and creative selection.
-
-## Personalization at Scale
-
-AI enables true 1:1 personalization:
-- Dynamic content based on user behavior
-- Personalized product recommendations
-- Individualized email timing and content
-- Custom landing pages
-
-## Voice and Visual Search
-
-Prepare for voice and visual search:
-- Optimize for conversational queries
-- Use descriptive image alt text
-- Implement structured data
-- Consider voice app development
-
-## Ethical Considerations
-
-### Privacy
-Be transparent about data collection. Give users control over their information.
-
-### Bias
-AI can perpetuate or amplify biases. Audit your algorithms regularly.
-
-### Authenticity
-Disclose AI-generated content when appropriate. Maintain human oversight.
-
-## Practical Implementation
-
-### Start Small
-- Implement AI-powered email send time optimization
-- Use chatbots for FAQs
-- Try AI-assisted content tools
-
-### Build Data Foundation
-AI needs data to work. Ensure you're collecting and organizing data effectively.
-
-### Upskill Your Team
-Train marketers to work alongside AI tools. Human creativity + AI efficiency = powerful results.
-
-## The Human Element
-
-AI won't replace marketers—it will augment them. Focus on:
-- Strategic thinking
-- Creative direction
-- Emotional intelligence
-- Brand voice
-- Ethical oversight
-
-## Looking Ahead
-
-The next few years will bring:
-- More sophisticated personalization
-- Better predictive capabilities
-- Improved content generation
-- Deeper customer insights
-
-## Conclusion
-
-AI is a powerful tool for digital marketers, but it's not magic. Success requires strategic implementation, quality data, and human oversight. Start exploring AI tools now to stay competitive in the evolving landscape.
-    `,
-  },
-}
+import { ArrowLeft, Calendar, Clock, Share2, Twitter, Linkedin, Facebook, User, ArrowRight } from "lucide-react"
+import { getBlogPostBySlug, getAllBlogPosts } from "@/sanity/lib/fetch"
+import { urlFor } from "@/sanity/lib/client"
+import { SanityContent } from "@/components/SanityContent"
+import { Button } from "@/components/ui/button"
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -507,165 +14,183 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = blogPostsData[slug]
+  const post = await getBlogPostBySlug(slug)
   
   if (!post) {
     return { title: "Post Not Found" }
   }
 
   return {
-    title: post.title,
-    description: post.excerpt,
+    title: post.seoTitle || post.title,
+    description: post.seoDescription || post.excerpt,
   }
 }
 
-export function generateStaticParams() {
-  return Object.keys(blogPostsData).map((slug) => ({ slug }))
+export async function generateStaticParams() {
+  const posts = await getAllBlogPosts()
+  return posts.map((post) => ({ slug: post.slug }))
 }
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
-  const post = blogPostsData[slug]
+  const post = await getBlogPostBySlug(slug)
 
   if (!post) {
     notFound()
   }
 
   return (
-    <div className="pt-20">
-      {/* Header */}
-      <section className="py-12 lg:py-16 bg-muted/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-20 bg-background">
+      {/* Article Header */}
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute inset-0 bg-linear-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-bl from-primary/10 via-transparent to-transparent -skew-x-12 translate-x-1/4 pointer-events-none" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-6 transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 text-muted-foreground hover:bg-primary hover:text-primary-foreground mb-12 transition-all group shadow-sm"
           >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Blog
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            <span className="text-sm font-bold">Back to Articles</span>
           </Link>
-          <div className="max-w-3xl">
-            <span className="text-sm font-medium text-primary">{post.category}</span>
-            <h1 className="mt-2 text-3xl lg:text-4xl font-bold text-foreground">{post.title}</h1>
-            <p className="mt-4 text-lg text-muted-foreground">{post.excerpt}</p>
-            <div className="mt-6 flex items-center gap-6">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 relative rounded-full overflow-hidden">
-                  <Image
-                    src={post.author.image || "/placeholder.svg"}
-                    alt={post.author.name}
-                    fill
-                    className="object-cover"
-                  />
+          
+          <div className="max-w-4xl">
+            <div className="flex items-center gap-3 mb-8">
+              <span className="px-4 py-1.5 bg-primary/10 text-primary text-xs font-bold rounded-full uppercase tracking-widest border border-primary/20">
+                {post.category}
+              </span>
+              <div className="w-1.5 h-1.5 rounded-full bg-border" />
+              <span className="text-sm text-muted-foreground font-medium">{post.readTime}</span>
+            </div>
+            
+            <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-[1.1] mb-10 tracking-tight">
+              {post.title}
+            </h1>
+            
+            <div className="flex flex-wrap items-center gap-8 pt-10 border-t border-border/50">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 relative rounded-2xl overflow-hidden shadow-lg border-2 border-background">
+                  {post.author?.image ? (
+                    <Image
+                      src={urlFor(post.author.image).width(150).height(150).url()}
+                      alt={post.author.name || ""}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-muted flex items-center justify-center"><User className="w-6 h-6 text-muted-foreground" /></div>
+                  )}
                 </div>
                 <div>
-                  <p className="font-medium text-foreground text-sm">{post.author.name}</p>
-                  <p className="text-xs text-muted-foreground">{post.author.role}</p>
+                  <p className="font-bold text-foreground text-lg leading-none mb-1">{post.author?.name}</p>
+                  <p className="text-sm text-muted-foreground font-medium">{post.author?.role}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <span className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
-                  {post.date}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Clock className="w-4 h-4" />
-                  {post.readTime}
-                </span>
+              
+              <div className="flex items-center gap-6 text-muted-foreground">
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/40 mb-1">Published</span>
+                  <div className="flex items-center gap-2 text-sm font-bold text-foreground/80">
+                    <Calendar className="w-4 h-4" />
+                    {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : ''}
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 ml-auto">
+                 <button className="w-12 h-12 rounded-2xl bg-muted/50 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all shadow-sm">
+                    <Share2 className="w-5 h-5" />
+                 </button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Image */}
-      <section className="py-8">
+      {/* Hero Image */}
+      <section className="pb-16 lg:pb-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto aspect-[21/9] relative rounded-2xl overflow-hidden shadow-xl">
-            <Image
-              src={post.image || "/placeholder.svg"}
-              alt={post.title}
-              fill
-              className="object-cover"
-            />
+          <div className="max-w-6xl mx-auto aspect-21/9 relative rounded-[3rem] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-border/50">
+            {post.featuredImage ? (
+              <Image
+                src={urlFor(post.featuredImage).width(1600).height(700).url()}
+                alt={post.title || ""}
+                fill
+                className="object-cover"
+                priority
+              />
+            ) : (
+              <div className="w-full h-full bg-muted" />
+            )}
           </div>
         </div>
       </section>
 
-      {/* Content */}
-      <section className="py-12">
+      {/* Article Content */}
+      <section className="pb-24 lg:pb-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-muted-foreground prose-p:leading-relaxed prose-li:text-muted-foreground prose-strong:text-foreground prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-muted">
-              {post.content.split('\n').map((paragraph, index) => {
-                if (paragraph.startsWith('## ')) {
-                  return <h2 key={index} className="text-2xl font-bold text-foreground mt-10 mb-4">{paragraph.replace('## ', '')}</h2>
-                }
-                if (paragraph.startsWith('### ')) {
-                  return <h3 key={index} className="text-xl font-semibold text-foreground mt-8 mb-3">{paragraph.replace('### ', '')}</h3>
-                }
-                if (paragraph.startsWith('- ')) {
-                  return <li key={index} className="text-muted-foreground ml-4">{paragraph.replace('- ', '')}</li>
-                }
-                if (paragraph.trim()) {
-                  return <p key={index} className="text-muted-foreground leading-relaxed mb-4">{paragraph}</p>
-                }
-                return null
-              })}
-            </article>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            {/* Sidebar Left - Placeholder for future nav/toc */}
+            <div className="hidden lg:block lg:col-span-1" />
+            
+            {/* Main Content */}
+            <div className="lg:col-span-8">
+               <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-primary prose-img:rounded-3xl">
+                <SanityContent value={post.content} />
+               </article>
 
-            {/* Share */}
-            <div className="mt-12 pt-8 border-t border-border">
-              <div className="flex items-center justify-between">
-                <p className="font-medium text-foreground">Share this article</p>
-                <div className="flex items-center gap-3">
-                  <a
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                    aria-label="Share on Twitter"
-                  >
-                    <Twitter className="w-4 h-4" />
-                  </a>
-                  <a
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                    aria-label="Share on LinkedIn"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                  <a
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                    aria-label="Share on Facebook"
-                  >
-                    <Facebook className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
+               {/* Tags/Categories */}
+               <div className="mt-16 pt-10 border-t border-border/50 flex flex-wrap gap-3">
+                  <span className="px-4 py-2 bg-muted/50 text-foreground text-sm font-bold rounded-xl"># {post.category}</span>
+                  <span className="px-4 py-2 bg-muted/50 text-foreground text-sm font-bold rounded-xl"># DigitalStrategy</span>
+                  <span className="px-4 py-2 bg-muted/50 text-foreground text-sm font-bold rounded-xl"># Innovation</span>
+               </div>
+            </div>
+
+            {/* Sidebar Right */}
+            <div className="lg:col-span-3 space-y-12">
+               {/* Share Widget */}
+               <div className="bg-card border border-border/50 rounded-3xl p-8 shadow-xl shadow-primary/5">
+                  <h3 className="font-bold text-lg mb-6 tracking-tight">Share Article</h3>
+                  <div className="flex flex-col gap-3">
+                    <button className="flex items-center gap-4 p-3 rounded-2xl bg-muted/30 hover:bg-[#1DA1F2] hover:text-white transition-all font-bold text-sm group">
+                      <div className="w-10 h-10 rounded-xl bg-background flex items-center justify-center group-hover:bg-white/20">
+                        <Twitter className="w-5 h-5" />
+                      </div>
+                      Twitter
+                    </button>
+                    <button className="flex items-center gap-4 p-3 rounded-2xl bg-muted/30 hover:bg-[#0A66C2] hover:text-white transition-all font-bold text-sm group">
+                      <div className="w-10 h-10 rounded-xl bg-background flex items-center justify-center group-hover:bg-white/20">
+                        <Linkedin className="w-5 h-5" />
+                      </div>
+                      LinkedIn
+                    </button>
+                    <button className="flex items-center gap-4 p-3 rounded-2xl bg-muted/30 hover:bg-[#1877F2] hover:text-white transition-all font-bold text-sm group">
+                      <div className="w-10 h-10 rounded-xl bg-background flex items-center justify-center group-hover:bg-white/20">
+                        <Facebook className="w-5 h-5" />
+                      </div>
+                      Facebook
+                    </button>
+                  </div>
+               </div>
+
+               {/* Related Articles could go here */}
+               <div className="sticky top-32">
+                 <div className="bg-primary rounded-3xl p-8 text-primary-foreground shadow-2xl shadow-primary/20 overflow-hidden relative group">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                    <h3 className="text-2xl font-bold mb-4 relative z-10">Need expert help with your project?</h3>
+                    <p className="text-primary-foreground/80 mb-8 relative z-10 leading-relaxed font-medium">
+                      Let's discuss how we can transform your digital presence together.
+                    </p>
+                    <Button asChild className="w-full bg-white text-primary hover:bg-white/90 font-bold h-14 rounded-2xl relative z-10 transition-transform group-hover:scale-105">
+                       <Link href="/contact">Get in Touch <ArrowRight className="ml-2 w-5 h-5" /></Link>
+                    </Button>
+                 </div>
+               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 lg:py-24 bg-muted/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-foreground">Want to learn more?</h2>
-          <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-            Subscribe to our newsletter for the latest insights delivered to your inbox.
-          </p>
-          <form className="mt-8 flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors"
-            >
-              Subscribe
-            </button>
-          </form>
         </div>
       </section>
     </div>

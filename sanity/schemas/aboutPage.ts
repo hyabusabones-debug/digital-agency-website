@@ -5,7 +5,7 @@ export const aboutPage = defineType({
   name: "aboutPage",
   title: "About Page",
   type: "document",
-  icon: () => Info,
+  icon: Info,
   fields: [
     defineField({
       name: "heroHeadline",

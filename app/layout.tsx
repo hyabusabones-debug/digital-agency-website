@@ -1,13 +1,15 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Outfit } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+import { SmoothScroll } from '@/components/SmoothScroll'
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-heading" });
 
 export const metadata: Metadata = {
   title: {
@@ -33,8 +35,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  },
-    generator: 'v0.app'
+  }
 }
 
 export const viewport: Viewport = {
@@ -53,16 +54,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans antialiased`}>
+      <body className={`${inter.variable} ${outfit.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <SmoothScroll>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </SmoothScroll>
         </ThemeProvider>
         <Analytics />
       </body>

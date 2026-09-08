@@ -23,7 +23,7 @@ const faqs = [
       },
       {
         question: "How long has your agency been in business?",
-        answer: "We have been helping businesses succeed in the digital landscape since 2014. Over the years, we have completed more than 500 projects for clients across various industries.",
+        answer: "We have been helping businesses succeed in the digital landscape since 2022. Over the years, we have completed more than 500 projects for clients across various industries.",
       },
       {
         question: "Do you work with businesses of all sizes?",
@@ -105,7 +105,7 @@ export default function FAQsPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-[#1a237e] via-[#283593] to-[#3949ab] dark:from-[#0d1442] dark:via-[#1a237e] dark:to-[#283593]">
+      <section className="py-16 lg:py-24 bg-linear-to-br from-[#1a237e] via-[#283593] to-[#3949ab] dark:from-[#0d1442] dark:via-[#1a237e] dark:to-[#283593]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl lg:text-5xl font-bold text-white">Frequently Asked Questions</h1>

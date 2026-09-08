@@ -35,7 +35,7 @@ export default defineConfig({
   title: "Digital Agency CMS",
   projectId: "0gihtcsa",
   dataset: "production",
-  basePath: "/",
+  basePath: "/admin",
 
   plugins: [
     dashboardTool({

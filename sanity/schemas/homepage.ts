@@ -5,7 +5,7 @@ export const homepage = defineType({
   name: "homepage",
   title: "Homepage",
   type: "document",
-  icon: () => HomeIcon,
+  icon: HomeIcon,
   fields: [
     defineField({
       name: "heroHeadline",

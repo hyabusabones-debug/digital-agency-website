@@ -5,7 +5,7 @@ export const caseStudy = defineType({
   name: "caseStudy",
   title: "Case Studies",
   type: "document",
-  icon: () => Briefcase,
+  icon: Briefcase,
   fields: [
     defineField({
       name: "projectName",

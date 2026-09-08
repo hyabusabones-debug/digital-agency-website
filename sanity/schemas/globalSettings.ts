@@ -5,7 +5,7 @@ export const globalSettings = defineType({
   name: "globalSettings",
   title: "Global Settings",
   type: "document",
-  icon: () => Settings,
+  icon: Settings,
   fields: [
     defineField({
       name: "siteName",
