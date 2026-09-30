@@ -16,7 +16,7 @@ export default async function ContactPage() {
     <div className="pt-20 bg-background">
       {/* Hero */}
       <section className="relative py-24 lg:py-32 overflow-hidden bg-[#0a0a0a]">
-        <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-indigo-500/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-primary/5 pointer-events-none" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-wider uppercase mb-6">
@@ -64,8 +64,8 @@ export default async function ContactPage() {
 
                 {settings?.contactInfo?.phone && (
                   <div className="flex items-start gap-6 group">
-                    <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center shrink-0 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
-                      <Phone className="w-6 h-6 text-indigo-500 group-hover:text-white" />
+                    <div className="w-14 h-14 rounded-2xl bg-spark/10 flex items-center justify-center shrink-0 group-hover:bg-spark group-hover:text-spark-foreground transition-all duration-300">
+                      <Phone className="w-6 h-6 text-spark group-hover:text-spark-foreground" />
                     </div>
                     <div>
                       <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-widest mb-1">Call Us</h3>
@@ -160,4 +160,3 @@ export default async function ContactPage() {
     </div>
   )
 }
-

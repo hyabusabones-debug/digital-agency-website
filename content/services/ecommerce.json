@@ -1,0 +1,35 @@
+{
+  "slug": "ecommerce",
+  "title": "E-Commerce Solutions",
+  "shortDescription": "Online store development",
+  "description": "We build online stores that convert \u2014 fast checkout flows, clear product presentation, and integrations with the payment, inventory, and shipping tools you already rely on.\n\nWhether you're launching your first store or migrating a struggling one, we focus on the fundamentals that actually move revenue.",
+  "icon": "ShoppingCart",
+  "features": [
+    "Custom Storefronts",
+    "Payment Integration",
+    "Inventory Management",
+    "Checkout Optimization",
+    "Headless Commerce",
+    "Subscription & Recurring Billing"
+  ],
+  "processSteps": [
+    {
+      "title": "Planning",
+      "description": "Mapping your catalog, fulfillment, and payment needs before build starts."
+    },
+    {
+      "title": "Build",
+      "description": "A custom storefront connected to the tools that run your business."
+    },
+    {
+      "title": "Testing",
+      "description": "Full checkout and payment testing across devices before going live."
+    },
+    {
+      "title": "Launch & Growth",
+      "description": "Going live, then iterating based on real conversion data."
+    }
+  ],
+  "order": 4,
+  "image": "/images/services/ecommerce.jpg"
+}

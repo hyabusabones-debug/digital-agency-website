@@ -1,0 +1,35 @@
+{
+  "slug": "digital-marketing",
+  "title": "Digital Marketing",
+  "shortDescription": "Boost your online presence",
+  "description": "We craft data-driven marketing strategies that put your brand in front of the right people at the right time \u2014 combining SEO, paid media, and content into one coherent plan instead of disconnected tactics.\n\nEvery campaign is measured against real business outcomes, not vanity metrics.",
+  "icon": "Megaphone",
+  "features": [
+    "Search Engine Optimization",
+    "Pay-Per-Click Advertising",
+    "Social Media Management",
+    "Content Strategy",
+    "Email Marketing",
+    "Analytics & Reporting"
+  ],
+  "processSteps": [
+    {
+      "title": "Audit",
+      "description": "A full review of your current presence, competitors, and opportunities."
+    },
+    {
+      "title": "Strategy",
+      "description": "A channel plan built around your specific goals and budget."
+    },
+    {
+      "title": "Execution",
+      "description": "Campaigns launched and continuously optimized based on real performance data."
+    },
+    {
+      "title": "Reporting",
+      "description": "Clear, jargon-free reporting on what's working and what's next."
+    }
+  ],
+  "order": 2,
+  "image": "/images/services/digital-marketing.jpg"
+}

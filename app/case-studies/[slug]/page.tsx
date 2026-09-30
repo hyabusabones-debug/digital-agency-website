@@ -118,8 +118,8 @@ export default async function CaseStudyPage({ params }: Props) {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
                  <div>
                     <div className="flex items-center gap-3 mb-8">
-                       <div className="w-12 h-12 rounded-2xl bg-orange-500/10 flex items-center justify-center">
-                          <Target className="w-6 h-6 text-orange-500" />
+                       <div className="w-12 h-12 rounded-2xl bg-spark/10 flex items-center justify-center">
+                          <Target className="w-6 h-6 text-spark" />
                        </div>
                        <h2 className="text-3xl font-bold tracking-tight">The Challenge</h2>
                     </div>
@@ -185,7 +185,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* Final CTA */}
       <section className="py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="max-w-5xl mx-auto bg-linear-to-r from-primary to-indigo-600 rounded-[3rem] p-12 lg:p-24 text-center text-white shadow-2xl shadow-primary/20 relative overflow-hidden">
+           <div className="max-w-5xl mx-auto bg-linear-to-r from-primary to-[oklch(0.38_0.16_260)] rounded-[3rem] p-12 lg:p-24 text-center text-white shadow-2xl shadow-primary/20 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid-white.svg')] opacity-10" />
               <div className="relative z-10">
                 <h2 className="text-4xl lg:text-6xl font-bold mb-8 tracking-tight">Ready for your own results?</h2>
@@ -205,4 +205,3 @@ export default async function CaseStudyPage({ params }: Props) {
     </div>
   )
 }
-

@@ -1,0 +1,35 @@
+{
+  "slug": "ui-ux-design",
+  "title": "UI/UX Design",
+  "shortDescription": "Engaging user experiences",
+  "description": "Good design is invisible \u2014 it just works. We research how your users actually think and behave, then design interfaces that feel obvious in hindsight.\n\nEvery screen is grounded in usability testing and a clear visual system, not just aesthetic trends.",
+  "icon": "Palette",
+  "features": [
+    "User Research",
+    "Wireframing & Prototyping",
+    "Design Systems",
+    "Usability Testing",
+    "Accessibility (WCAG)",
+    "Motion & Micro-interactions"
+  ],
+  "processSteps": [
+    {
+      "title": "Research",
+      "description": "Understanding your users' goals, pain points, and existing behavior."
+    },
+    {
+      "title": "Wireframes",
+      "description": "Low-fidelity structure to get the flow right before visual design begins."
+    },
+    {
+      "title": "Visual Design",
+      "description": "A polished, on-brand interface built from a consistent design system."
+    },
+    {
+      "title": "Testing",
+      "description": "Real user feedback used to refine the design before handoff."
+    }
+  ],
+  "order": 3,
+  "image": "/images/services/ui-ux-design.jpg"
+}

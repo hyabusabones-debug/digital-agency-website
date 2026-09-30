@@ -37,9 +37,9 @@ export function CTASection(props: CTASectionProps) {
           className="relative bg-[#0a0a0a] rounded-[3rem] p-12 lg:p-20 overflow-hidden text-center shadow-2xl border border-white/5"
         >
           {/* Background effects */}
-          <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-indigo-500/10 pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-primary/5 pointer-events-none" />
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-500/10 rounded-full blur-[100px]" />
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-spark/10 rounded-full blur-[100px]" />
 
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-4xl lg:text-6xl font-bold text-white mb-8 tracking-tight leading-tight">
@@ -79,4 +79,3 @@ export function CTASection(props: CTASectionProps) {
     </section>
   )
 }
-

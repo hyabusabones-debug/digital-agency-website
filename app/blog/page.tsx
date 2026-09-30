@@ -15,7 +15,7 @@ export default async function BlogPage() {
       {/* Hero */}
       <section className="relative py-24 lg:py-32 overflow-hidden bg-[#0a0a0a]">
         {/* Background Effects */}
-        <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-indigo-500/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-primary/5 pointer-events-none" />
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

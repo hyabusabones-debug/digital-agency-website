@@ -4,9 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Check, Zap, Shield, Target, TrendingUp, ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { getServiceBySlug, getAllServices } from "@/sanity/lib/fetch"
-import { urlFor } from "@/sanity/lib/client"
-import { SanityContent } from "@/components/SanityContent"
+import { getServiceBySlug, getAllServices } from "@/lib/content"
+import { MarkdownContent } from "@/components/MarkdownContent"
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -43,7 +42,7 @@ export default async function ServicePage({ params }: Props) {
     <div className="pt-20 bg-background">
       {/* Hero */}
       <section className="relative py-24 lg:py-32 overflow-hidden bg-[#0a0a0a]">
-        <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-indigo-500/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-primary/5 pointer-events-none" />
         <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-bl from-primary/10 via-transparent to-transparent -skew-x-12 translate-x-1/2 pointer-events-none" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -60,7 +59,7 @@ export default async function ServicePage({ params }: Props) {
                 {service.title}
               </h1>
               <div className="prose prose-lg dark:prose-invert text-white/70 mb-10 max-w-2xl leading-relaxed">
-                 <SanityContent value={service.description} />
+                 <MarkdownContent value={service.description} />
               </div>
               <Button asChild size="lg" className="h-16 px-10 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-2xl shadow-xl shadow-primary/20 transition-all hover:scale-105">
                 <Link href="/contact">
@@ -73,7 +72,7 @@ export default async function ServicePage({ params }: Props) {
               <div className="aspect-square relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white/5 group">
                 {service.image ? (
                   <Image
-                    src={urlFor(service.image).width(1000).height(1000).url()}
+                    src={service.image}
                     alt={service.title || ""}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-1000"
@@ -173,7 +172,7 @@ export default async function ServicePage({ params }: Props) {
               <div className="aspect-square relative rounded-[3rem] overflow-hidden shadow-2xl group">
                 {service.image ? (
                    <Image
-                    src={urlFor(service.image).width(1000).height(1000).url()}
+                    src={service.image}
                     alt={`${service.title} benefits`}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-1000"
@@ -198,7 +197,7 @@ export default async function ServicePage({ params }: Props) {
       {/* CTA */}
       <section className="py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="bg-linear-to-br from-primary to-indigo-700 rounded-[4rem] p-12 lg:p-24 text-center text-white relative overflow-hidden shadow-2xl group">
+           <div className="bg-linear-to-br from-primary to-[oklch(0.32_0.16_260)] rounded-[4rem] p-12 lg:p-24 text-center text-white relative overflow-hidden shadow-2xl group">
               <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid-white.svg')] opacity-10" />
               <div className="relative z-10">
                 <h2 className="text-4xl lg:text-6xl font-bold mb-8 tracking-tighter">Ready to scale your <br /><span className="text-white/80 italic">digital presence</span>?</h2>
@@ -220,4 +219,3 @@ export default async function ServicePage({ params }: Props) {
     </div>
   )
 }
-

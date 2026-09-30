@@ -59,8 +59,7 @@ export function ServicesStrip({ items }: ServicesStripProps) {
                     duration: 0.8,
                     ease: [0.21, 0.47, 0.32, 0.98] as any
                   }}
-                  whileHover={{ backgroundColor: "rgba(var(--primary), 0.02)" }}
-                  className="p-8 lg:p-10 flex items-center gap-6 cursor-pointer group transition-all"
+                  className="p-8 lg:p-10 flex items-center gap-6 cursor-pointer group transition-all hover:bg-primary/[0.03]"
                 >
                   <div className="relative w-16 h-16 shrink-0 flex items-center justify-center">
                     <div className="absolute inset-0 bg-primary/10 rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300" />
@@ -80,4 +79,3 @@ export function ServicesStrip({ items }: ServicesStripProps) {
     </section>
   )
 }
-

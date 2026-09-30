@@ -1,4 +1,4 @@
-import { getGlobalSettings, getAllServices } from "@/sanity/lib/fetch"
+import { getGlobalSettings, getAllServices } from "@/lib/content"
 import { Navbar } from "@/components/Navbar"
 
 export async function Header() {
@@ -14,5 +14,3 @@ export async function Header() {
 
   return <Navbar siteName={settings?.siteName} services={formattedServices} />
 }
-
-

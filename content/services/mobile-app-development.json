@@ -1,0 +1,35 @@
+{
+  "slug": "mobile-app-development",
+  "title": "Mobile App Development",
+  "shortDescription": "iOS & Android apps",
+  "description": "We build native-quality mobile apps for iOS and Android, from the first prototype through App Store and Play Store submission.\n\nEvery app is built with a maintainable codebase and a clear plan for what happens after launch \u2014 updates, monitoring, and iteration based on real user behavior.",
+  "icon": "Smartphone",
+  "features": [
+    "iOS & Android Apps",
+    "Cross-Platform Development",
+    "App Store Submission",
+    "Push Notifications",
+    "Offline-First Architecture",
+    "Post-Launch Support"
+  ],
+  "processSteps": [
+    {
+      "title": "Discovery",
+      "description": "Defining core features and the platforms that matter most to your users."
+    },
+    {
+      "title": "Design",
+      "description": "Native-feeling interfaces designed for touch, not adapted from desktop."
+    },
+    {
+      "title": "Development",
+      "description": "Built and tested across real devices, not just simulators."
+    },
+    {
+      "title": "Launch",
+      "description": "Store submission handled end-to-end, plus a plan for updates after launch."
+    }
+  ],
+  "order": 5,
+  "image": "/images/services/mobile-app.jpg"
+}

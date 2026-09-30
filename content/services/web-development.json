@@ -1,0 +1,35 @@
+{
+  "slug": "web-development",
+  "title": "Web Development",
+  "shortDescription": "Responsive & scalable websites",
+  "description": "We build fast, accessible, and scalable websites using modern frameworks \u2014 engineered to grow with your business rather than needing to be rebuilt every couple of years.\n\nFrom marketing sites to complex web applications, every project is built on a foundation of clean code, thoughtful architecture, and performance best practices.",
+  "icon": "Code2",
+  "features": [
+    "Custom Web Applications",
+    "E-Commerce Platforms",
+    "API Development",
+    "Performance Optimization",
+    "Progressive Web Apps",
+    "Ongoing Maintenance"
+  ],
+  "processSteps": [
+    {
+      "title": "Discovery",
+      "description": "We dig into your goals, users, and technical requirements before writing a line of code."
+    },
+    {
+      "title": "Design",
+      "description": "Wireframes and interactive prototypes so you can see and refine the experience early."
+    },
+    {
+      "title": "Development",
+      "description": "Clean, well-tested code built in focused sprints with regular check-ins."
+    },
+    {
+      "title": "Launch & Support",
+      "description": "A smooth deployment, followed by ongoing monitoring and support."
+    }
+  ],
+  "order": 1,
+  "image": "/images/services/web-development.jpg"
+}

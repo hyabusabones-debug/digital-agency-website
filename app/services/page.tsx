@@ -3,8 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { getAllServices } from "@/sanity/lib/fetch"
-import { urlFor } from "@/sanity/lib/client"
+import { getAllServices } from "@/lib/content"
 
 export const metadata: Metadata = {
   title: "Our Services",
@@ -18,7 +17,7 @@ export default async function ServicesPage() {
     <div className="pt-20 bg-background">
       {/* Hero */}
       <section className="relative py-24 lg:py-32 overflow-hidden bg-[#0a0a0a]">
-        <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-purple-500/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-primary/5 pointer-events-none" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-bl from-primary/10 via-transparent to-transparent -skew-x-12 translate-x-1/4 pointer-events-none" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -43,7 +42,7 @@ export default async function ServicesPage() {
           <div className="flex flex-col gap-24 lg:gap-40">
             {services?.map((service, index) => (
               <div
-                key={service._id}
+                key={service.slug}
                 className={`grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center ${
                   index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
@@ -52,7 +51,7 @@ export default async function ServicesPage() {
                    <div className="aspect-[4/3] relative rounded-[3rem] overflow-hidden shadow-2xl border border-border/50 group">
                     {service.image ? (
                       <Image
-                        src={urlFor(service.image).width(1000).height(750).url()}
+                        src={service.image}
                         alt={service.title || ""}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-1000"
@@ -130,4 +129,3 @@ export default async function ServicesPage() {
     </div>
   )
 }
-
